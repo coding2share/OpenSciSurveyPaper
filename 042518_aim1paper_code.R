@@ -639,10 +639,10 @@ perc.acadShareData <- round(100*(n.acadShareData/sum(academicsShareData[academic
 
 # sharing non-academics
 n.nonacadShareCode <- sum(academicsShareCode[academicsShareCode$code == "Yes" & academicsShareCode$academics != "Academic",]$Freq)
-perc.nonacadShareCode <- round(100*(n.acadShareCode/sum(academicsShareCode[academicsShareCode$academics != "Academic",]$Freq)), 1)
+perc.nonacadShareCode <- round(100*(n.nonacadShareCode/sum(academicsShareCode[academicsShareCode$academics != "Academic",]$Freq)), 1)
 
 n.nonacadShareData <- sum(academicsShareData[academicsShareData$data == "Yes" & academicsShareData$academics != "Academic",]$Freq)
-perc.nonacadShareData <- round(100*(n.acadShareData/sum(academicsShareData[academicsShareData$academics != "Academic",]$Freq)), 1)
+perc.nonacadShareData <- round(100*(n.nonacadShareData/sum(academicsShareData[academicsShareData$academics != "Academic",]$Freq)), 1)
 
 # data and code sharing by sex
 sexShareCode <- data.frame(table(sex = r$gender, code = r$Q25_2_2))
@@ -651,13 +651,13 @@ n.maleShareCode <- sexShareCode[sexShareCode$code == "Yes" & sexShareCode$sex ==
 perc.maleShareCode <- round(100*(n.maleShareCode/sum(sexShareCode[sexShareCode$sex == "Male",]$Freq)), 1)
 
 n.femaleShareCode <- sexShareCode[sexShareCode$code == "Yes" & sexShareCode$sex == "Female",]$Freq
-perc.femaleShareCode <- round(100*(n.maleShareCode/sum(sexShareCode[sexShareCode$sex == "Female",]$Freq)), 1)
+perc.femaleShareCode <- round(100*(n.femaleShareCode/sum(sexShareCode[sexShareCode$sex == "Female",]$Freq)), 1)
 
 n.maleShareData <- sexShareData[sexShareData$data == "Yes" & sexShareData$sex == "Male",]$Freq
 perc.maleShareData <- round(100*(n.maleShareData/sum(sexShareData[sexShareData$sex == "Male",]$Freq)), 1)
 
 n.femaleShareData <- sexShareData[sexShareData$data == "Yes" & sexShareData$sex == "Female",]$Freq
-perc.femaleShareData <- round(100*(n.maleShareData/sum(sexShareData[sexShareData$sex == "Female",]$Freq)), 1)
+perc.femaleShareData <- round(100*(n.femaleShareData/sum(sexShareData[sexShareData$sex == "Female",]$Freq)), 1)
 
 # other sex shared code or data
 code_avail <- subset(r, Q25_2_2=="Yes")
